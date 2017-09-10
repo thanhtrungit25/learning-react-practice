@@ -42,6 +42,7 @@ const data = [
 window.React = React
 
 render(
-    <Menu />,
+    <Menu recipes={data}
+          title="Delicious Recipes" />,
     document.getElementById('react-container')
 )

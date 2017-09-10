@@ -9762,16 +9762,10 @@ var data = [{
     "steps": ["Cook the fish on the grill until hot.", "Place the fish on the 3 tortillas.", "Top them with lettuce, tomatoes, and cheese"]
 }];
 
-// const Menu = () =>
-//     <article>
-//         <header>
-//             <h1>Menu</h1>
-//         </header>
-//     </article>
-
 window.React = _react2.default;
 
-(0, _reactDom.render)(_react2.default.createElement(_Menu2.default, null), document.getElementById('react-container'));
+(0, _reactDom.render)(_react2.default.createElement(_Menu2.default, { recipes: data,
+    title: 'Delicious Recipes' }), document.getElementById('react-container'));
 
 /***/ }),
 /* 82 */
@@ -22419,7 +22413,18 @@ module.exports = ReactDOMInvalidARIAHook;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var Menu = function Menu() {
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _Recipe = __webpack_require__(185);
+
+var _Recipe2 = _interopRequireDefault(_Recipe);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Menu = function Menu(_ref) {
+    var recipes = _ref.recipes,
+        title = _ref.title;
     return React.createElement(
         "article",
         null,
@@ -22429,13 +22434,182 @@ var Menu = function Menu() {
             React.createElement(
                 "h1",
                 null,
-                "Menu"
+                title
             )
+        ),
+        React.createElement(
+            "div",
+            { className: "recipes" },
+            recipes.map(function (recipe, i) {
+                return React.createElement(_Recipe2.default, _extends({ key: i }, recipe));
+            })
         )
     );
 };
 
 exports.default = Menu;
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _IngredientsList = __webpack_require__(186);
+
+var _IngredientsList2 = _interopRequireDefault(_IngredientsList);
+
+var _Instructions = __webpack_require__(188);
+
+var _Instructions2 = _interopRequireDefault(_Instructions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Recipe = function Recipe(_ref) {
+    var name = _ref.name,
+        ingredients = _ref.ingredients,
+        steps = _ref.steps;
+    return React.createElement(
+        'section',
+        { id: name.toLowerCase().replace(/ /g, '-') },
+        React.createElement(
+            'h1',
+            null,
+            name
+        ),
+        React.createElement(_IngredientsList2.default, { list: ingredients }),
+        React.createElement(_Instructions2.default, {
+            title: 'Cooking instruction',
+            steps: steps
+        })
+    );
+};
+
+exports.default = Recipe;
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _Ingredient = __webpack_require__(187);
+
+var _Ingredient2 = _interopRequireDefault(_Ingredient);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var IngredientsList = function IngredientsList(_ref) {
+    var list = _ref.list;
+    return React.createElement(
+        "ul",
+        { className: "ingredients" },
+        list.map(function (ingredient, i) {
+            return React.createElement(_Ingredient2.default, _extends({ key: i }, ingredient));
+        })
+    );
+};
+
+exports.default = IngredientsList;
+
+/***/ }),
+/* 187 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var Ingredient = function Ingredient(_ref) {
+    var name = _ref.name,
+        amount = _ref.amount,
+        measurement = _ref.measurement;
+    return React.createElement(
+        "div",
+        null,
+        React.createElement(
+            "li",
+            { className: "amount" },
+            React.createElement(
+                "span",
+                null,
+                name,
+                " "
+            )
+        ),
+        React.createElement(
+            "li",
+            { className: "measurement" },
+            React.createElement(
+                "span",
+                null,
+                measurement,
+                " "
+            )
+        ),
+        React.createElement(
+            "li",
+            { className: "name" },
+            React.createElement(
+                "span",
+                null,
+                name,
+                " "
+            )
+        )
+    );
+};
+
+Ingredient.displayName = "Ingredient";
+
+exports.default = Ingredient;
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var Instructions = function Instructions(_ref) {
+    var title = _ref.title,
+        steps = _ref.steps;
+    return React.createElement(
+        "section",
+        { className: "instructions" },
+        React.createElement(
+            "h1",
+            null,
+            title
+        ),
+        steps.map(function (step, i) {
+            return React.createElement(
+                "p",
+                { key: i },
+                step
+            );
+        })
+    );
+};
+
+exports.default = Instructions;
 
 /***/ })
 /******/ ]);
