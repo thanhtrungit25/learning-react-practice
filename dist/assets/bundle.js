@@ -9750,21 +9750,15 @@ var _Menu = __webpack_require__(184);
 
 var _Menu2 = _interopRequireDefault(_Menu);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _recipes = __webpack_require__(189);
 
-var data = [{
-    "name": "Baked Salmon",
-    "ingredients": [{ "name": "Salmon", "amount": 1, "measurement": "l lb" }, { "name": "Pine Nuts", "amount": 1, "measurement": "cup" }, { "name": "Butter Lettuce", "amount": 2, "measurement": "cups" }, { "name": "Yellow Squash", "amount": 1, "measurement": "med" }, { "name": "Olive Oil", "amount": 0.5, "measurement": "cup" }, { "name": "Garlic", "amount": 3, "measurement": "cloves" }],
-    "steps": ["Preheat the oven to 350 degrees.", "Spread the olive oil around a glass baking dish.", "Add the salmon, garlic, and pine nuts to the dish.", "Bake for 15 minutes.", "Add the yellow squash and put back in the oven for 30 mins.", "Remove from oven and let cool for 15 minutes. Add the lettuce and serve."]
-}, {
-    "name": "Fish Tacos",
-    "ingredients": [{ "name": "Whitefish", "amount": 1, "measurement": "l lb" }, { "name": "Cheese", "amount": 1, "measurement": "cup" }, { "name": "Iceberg Lettuce", "amount": 2, "measurement": "cups" }, { "name": "Tomatoes", "amount": 2, "measurement": "large" }, { "name": "Tortillas", "amount": 3, "measurement": "med" }],
-    "steps": ["Cook the fish on the grill until hot.", "Place the fish on the 3 tortillas.", "Top them with lettuce, tomatoes, and cheese"]
-}];
+var _recipes2 = _interopRequireDefault(_recipes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 window.React = _react2.default;
 
-(0, _reactDom.render)(_react2.default.createElement(_Menu2.default, { recipes: data,
+(0, _reactDom.render)(_react2.default.createElement(_Menu2.default, { recipes: _recipes2.default,
     title: 'Delicious Recipes' }), document.getElementById('react-container'));
 
 /***/ }),
@@ -22483,10 +22477,8 @@ var Recipe = function Recipe(_ref) {
             name
         ),
         React.createElement(_IngredientsList2.default, { list: ingredients }),
-        React.createElement(_Instructions2.default, {
-            title: 'Cooking instruction',
-            steps: steps
-        })
+        React.createElement(_Instructions2.default, { title: 'Cooking instruction',
+            steps: steps })
     );
 };
 
@@ -22599,17 +22591,23 @@ var Instructions = function Instructions(_ref) {
             null,
             title
         ),
-        steps.map(function (step, i) {
+        steps.map(function (s, i) {
             return React.createElement(
                 "p",
                 { key: i },
-                step
+                s
             );
         })
     );
 };
 
 exports.default = Instructions;
+
+/***/ }),
+/* 189 */
+/***/ (function(module, exports) {
+
+module.exports = [{"name":"Baked Salmon","ingredients":[{"name":"Salmon","amount":1,"measurement":"l lb"},{"name":"Pine Nuts","amount":1,"measurement":"cup"},{"name":"Butter Lettuce","amount":2,"measurement":"cups"},{"name":"Yellow Squash","amount":1,"measurement":"med"},{"name":"Olive Oil","amount":0.5,"measurement":"cup"},{"name":"Garlic","amount":3,"measurement":"cloves"}],"steps":["Preheat the oven to 350 degrees.","Spread the olive oil around a glass baking dish.","Add the salmon, garlic, and pine nuts to the dish.","Bake for 15 minutes.","Add the yellow squash and put back in the oven for 30 mins.","Remove from oven and let cool for 15 minutes. Add the lettuce and serve."]},{"name":"Fish Tacos","ingredients":[{"name":"Whitefish","amount":1,"measurement":"l lb"},{"name":"Cheese","amount":1,"measurement":"cup"},{"name":"Iceberg Lettuce","amount":2,"measurement":"cups"},{"name":"Tomatoes","amount":2,"measurement":"large"},{"name":"Tortillas","amount":3,"measurement":"med"}],"steps":["Cook the fish on the grill until hot.","Place the fish on the 3 tortillas.","Top them with lettuce, tomatoes, and cheese"]}]
 
 /***/ })
 /******/ ]);
