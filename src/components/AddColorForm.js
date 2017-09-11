@@ -1,3 +1,5 @@
+import '../../stylesheets/AddColorForm.scss'
+
 const AddColorForm = () => {
 
     return (
