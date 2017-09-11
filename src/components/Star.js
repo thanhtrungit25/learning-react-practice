@@ -1,6 +1,7 @@
+import '../../stylesheets/Star.scss'
+
 const Star = () =>
-    <div className="star-rating">
-        <p>Star stateless</p>
+    <div className="star">
     </div>
 
 export default Star

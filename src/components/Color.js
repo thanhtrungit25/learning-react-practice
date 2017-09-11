@@ -3,7 +3,11 @@ import '../../stylesheets/Color.scss'
 
 const Color = ({ title, color, rating=0 }) =>
     <section className="color">
-        <p>Color stateless functional</p>
+        <h1>Color title</h1>
+        <button>X</button>
+        <div className="color"
+             style={{ backgroundColor: "blue" }}>
+        </div>
         <div>
             <StarRating />
         </div>
