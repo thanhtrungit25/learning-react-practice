@@ -1,4 +1,6 @@
 import { Component } from 'react'
+import AddColorForm from './AddColorForm'
+import ColorList from './ColorList'
 
 export default class App extends Component {
 
@@ -12,7 +14,8 @@ export default class App extends Component {
     render() {
         return (
             <div className="app">
-                <p>App Component</p>
+                <AddColorForm />
+                <ColorList />
             </div>
         )
     }
