@@ -5,10 +5,17 @@ import '../../stylesheets/Color.scss'
 class Color extends Component {
 
     componentWillMount() {
+        console.log('componentWillMount')
         this.style = { backgroundColor: "#CCC" }
     }
 
+    componentWillUpdate() {
+        console.log('componentWillUpdate');
+        this.style = null
+    }
+
     render() {
+        console.log('**render**')
         const {title, color, rating, onRate, onRemove} = this.props
         return (
             <section className="color" style={this.style}>
