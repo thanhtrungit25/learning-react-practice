@@ -4,10 +4,14 @@ import '../../stylesheets/Color.scss'
 
 class Color extends Component {
 
+    componentWillMount() {
+        this.style = { backgroundColor: "#CCC" }
+    }
+
     render() {
         const {title, color, rating, onRate, onRemove} = this.props
         return (
-            <section className="color">
+            <section className="color" style={this.style}>
                 <h1>{title}</h1>
                 <button onClick={onRemove}>X</button>
                 <div className="color"
