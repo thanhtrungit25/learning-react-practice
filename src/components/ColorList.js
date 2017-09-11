@@ -2,7 +2,7 @@ import { PropTypes } from 'react'
 import Color from './Color'
 import '../../stylesheets/ColorList.scss'
 
-const ColorList = ({ colors=[] }) =>
+const ColorList = ({ colors=[], onRate=f=>f }) =>
     <div className="color-list">
         {
             (colors.length === 0) ?
@@ -10,6 +10,7 @@ const ColorList = ({ colors=[] }) =>
                 colors.map((color) =>
                     <Color key={color.id}
                         {...color}
+                        onRate={(rating) => onRate(color.id, rating)}
                     />
         )}
     </div>
