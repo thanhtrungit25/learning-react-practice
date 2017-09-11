@@ -1,3 +1,4 @@
+import { PropTypes } from 'react'
 import StarRating from './StarRating'
 import '../../stylesheets/Color.scss'
 
@@ -12,5 +13,13 @@ const Color = ({ title, color, rating=0, onRemove=f=>f, onRate=f=>f }) =>
             <StarRating starsSelected={rating} onRate={onRate} />
         </div>
     </section>
+
+Color.propTypes = {
+    title: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    rating: PropTypes.number,
+    onRemove: PropTypes.func,
+    onRate: PropTypes.func,
+}
 
 export default Color
