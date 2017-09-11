@@ -17,7 +17,7 @@ export default class App extends Component {
 
     addColor(title, color) {
         const colors = [
-            this.state.colors,
+            ...this.state.colors,
             {
                 id: v4(),
                 title,
@@ -25,7 +25,7 @@ export default class App extends Component {
                 rating: 0
             }
         ]
-        this.setState(colors)
+        this.setState({colors})
     }
 
     render() {
