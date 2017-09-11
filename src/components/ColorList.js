@@ -1,3 +1,4 @@
+import { PropTypes } from 'react'
 import Color from './Color'
 import '../../stylesheets/ColorList.scss'
 
@@ -12,5 +13,9 @@ const ColorList = ({ colors=[] }) =>
                     />
         )}
     </div>
+
+ColorList.propTypes = {
+    colors: PropTypes.array    
+}
 
 export default ColorList
