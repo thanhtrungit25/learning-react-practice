@@ -3,9 +3,12 @@ import '../../stylesheets/AddColorForm.scss'
 const AddColorForm = () => {
 
     return (
-        <div>
-            <p>AddColorForm stateless functionnal</p>
-        </div>
+        <form className="add-color">
+            <input type="text"
+                   placeholder="color title..." required/>
+            <input type="color" required/>
+            <button>ADD</button>
+        </form>
     )
 
 }
