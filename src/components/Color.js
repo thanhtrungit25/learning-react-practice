@@ -35,4 +35,10 @@ Color.propTypes = {
     onRate: PropTypes.func,
 }
 
+Color.defaultProps = {
+    rating: 0,
+    onRate: f=>f,
+    onRemove: f=>f
+}
+
 export default Color
