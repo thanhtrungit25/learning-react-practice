@@ -10,6 +10,7 @@ class Color extends Component {
     }
 
     shouldComponentUpdate(nextProps) {
+        console.log('shouldComponentUpdate')
         const { rating } = this.props
         return rating !== nextProps.rating
     }
@@ -17,6 +18,12 @@ class Color extends Component {
     componentWillUpdate() {
         console.log('componentWillUpdate');
         this.style = null
+    }
+
+    componentDidUpdate(prevProps) {
+        const { title, rating } = this.props
+        const status = (rating > prevProps.rating) ? 'better': 'worse'
+        console.log(`${title} is getting ${status}`)
     }
 
     render() {
