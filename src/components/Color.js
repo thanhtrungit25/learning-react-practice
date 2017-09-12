@@ -15,15 +15,22 @@ class Color extends Component {
         return rating !== nextProps.rating
     }
 
-    componentWillUpdate() {
+    componentWillUpdate(nextProps) {
         console.log('componentWillUpdate');
+        const { title, rating } = this.props
         this.style = null
+
+        this.refs.title.style.backgroundColor = "red"
+        this.refs.title.style.color = "white"
+        alert(`${title}: rating ${rating} -> ${nextProps.rating}`)
     }
 
     componentDidUpdate(prevProps) {
         const { title, rating } = this.props
         const status = (rating > prevProps.rating) ? 'better': 'worse'
         console.log(`${title} is getting ${status}`)
+        this.refs.title.style.backgroundColor = ""
+        this.refs.title.style.color = "black"
     }
 
     render() {
@@ -31,7 +38,7 @@ class Color extends Component {
         const {title, color, rating, onRate, onRemove} = this.props
         return (
             <section className="color" style={this.style}>
-                <h1>{title}</h1>
+                <h1 ref="title">{title}</h1>
                 <button onClick={onRemove}>X</button>
                 <div className="color"
                     style={{ backgroundColor: color }}>
