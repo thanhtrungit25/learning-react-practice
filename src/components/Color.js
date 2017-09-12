@@ -9,6 +9,11 @@ class Color extends Component {
         this.style = { backgroundColor: "#CCC" }
     }
 
+    shouldComponentUpdate(nextProps) {
+        const { rating } = this.props
+        return rating !== nextProps.rating
+    }
+
     componentWillUpdate() {
         console.log('componentWillUpdate');
         this.style = null
