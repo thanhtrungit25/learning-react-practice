@@ -1,6 +1,7 @@
 import { PropTypes, Component } from 'react'
 import StarRating from './StarRating'
 import '../../stylesheets/Color.scss'
+import FaTrash from 'react-icons/lib/fa/trash-o'
 import { removeColor, rateColor } from '../actions'
 
 class Color extends Component {
@@ -15,7 +16,9 @@ class Color extends Component {
                     store.dispatch(
                         removeColor(id)
                     )
-                }>X</button>
+                }>
+                    <FaTrash />
+                </button>
                 <div className="color"
                     style={{ backgroundColor: color }}>
                 </div>
