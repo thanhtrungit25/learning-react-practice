@@ -1,8 +1,6 @@
 import { PropTypes } from 'react'
 import Color from './Color'
-import { rateColor, removeColor } from '../actions'
 import '../../stylesheets/ColorList.scss'
-import { sortFunction } from '../lib/array-helpers'
 
 const ColorList = ({ colors=[] }) =>
     <div className="color-list">

@@ -1,70 +1,50 @@
 import { PropTypes, Component } from 'react'
 import StarRating from './StarRating'
 import '../../stylesheets/Color.scss'
+import { removeColor, rateColor } from '../actions'
 
 class Color extends Component {
 
-    componentWillMount() {
-        console.log('componentWillMount')
-        this.style = { backgroundColor: "#CCC" }
-    }
-
-    shouldComponentUpdate(nextProps) {
-        console.log('shouldComponentUpdate')
-        const { rating } = this.props
-        return rating !== nextProps.rating
-    }
-
-    componentWillUpdate(nextProps) {
-        console.log('componentWillUpdate');
-        const { title, rating } = this.props
-        this.style = null
-
-        this.refs.title.style.backgroundColor = "red"
-        this.refs.title.style.color = "white"
-        alert(`${title}: rating ${rating} -> ${nextProps.rating}`)
-    }
-
-    componentDidUpdate(prevProps) {
-        const { title, rating } = this.props
-        const status = (rating > prevProps.rating) ? 'better': 'worse'
-        console.log(`${title} is getting ${status}`)
-        this.refs.title.style.backgroundColor = ""
-        this.refs.title.style.color = "black"
-    }
-
     render() {
-        console.log('**render**')
-        const {title, color, rating, onRate, onRemove} = this.props
+        const {id, title, color, rating, timestamp} = this.props
+        const { store } = this.context
         return (
             <section className="color" style={this.style}>
                 <h1 ref="title">{title}</h1>
-                <button onClick={onRemove}>X</button>
+                <button onClick={() =>
+                    store.dispatch(
+                        removeColor(id)
+                    )
+                }>X</button>
                 <div className="color"
                     style={{ backgroundColor: color }}>
                 </div>
                 <div>
-                    <StarRating starsSelected={rating} onRate={onRate} />
+                    <StarRating starsSelected={rating}
+                                onRate={rating =>
+                                    store.dispatch(
+                                        rateColor(id, rating)
+                                    )
+                                } />
                 </div>
             </section>
         )
     }
-
 }
 
+Color.contextTypes = {
+    store: PropTypes.object
+}
 
 Color.propTypes = {
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     rating: PropTypes.number,
-    onRemove: PropTypes.func,
-    onRate: PropTypes.func,
 }
 
 Color.defaultProps = {
-    rating: 0,
-    onRate: f=>f,
-    onRemove: f=>f
+    rating: 0
 }
 
 export default Color
