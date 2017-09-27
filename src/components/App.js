@@ -2,6 +2,7 @@ import { PropTypes, Component } from 'react'
 import { v4 } from 'uuid'
 import AddColorForm from './AddColorForm'
 import ColorList from './ColorList'
+import SortMenu from './SortMenu'
 import '../../stylesheets/APP.scss'
 import { sortFunction } from '../lib/array-helpers'
 

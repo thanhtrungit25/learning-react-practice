@@ -25,17 +25,7 @@ export const rateColor = (id, rating) =>
     })
 
 export const sortColors = sortBy =>
-    (sortBy === "rating") ?
-        ({
-            type: C.SORT_COLORS,
-            sortBy: "SORTED_BY_RATING"
-        }) :
-        (sortBy === "title") ?
-            ({
-                type: C.SORT_COLORS,
-                sortBy: "SORTED_BY_TITLE"
-            }) :
-            ({
-                type: C.SORT_COLORS,
-                sortBy: "SORTED_BY_DATE"
-            })
+    ({
+        type: C.SORT_COLORS,
+        sortBy
+    })
