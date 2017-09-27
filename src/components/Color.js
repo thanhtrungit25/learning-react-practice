@@ -1,6 +1,7 @@
 import { PropTypes, Component } from 'react'
 import StarRating from './StarRating'
 import '../../stylesheets/Color.scss'
+import TimeAgo from './TimeAgo'
 import FaTrash from 'react-icons/lib/fa/trash-o'
 import { removeColor, rateColor } from '../actions'
 
@@ -22,6 +23,7 @@ class Color extends Component {
                 <div className="color"
                     style={{ backgroundColor: color }}>
                 </div>
+                <TimeAgo timestamp={timestamp} />
                 <div>
                     <StarRating starsSelected={rating}
                                 onRate={rating =>
