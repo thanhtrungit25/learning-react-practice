@@ -1,6 +1,6 @@
 import { PropTypes } from 'react'
-import '../../stylesheets/AddColorForm.scss'
-import { addColor } from '../actions'
+import '../../../stylesheets/AddColorForm.scss'
+import { addColor } from '../../actions'
 
 const AddColorForm = (props, { store }) => {
 

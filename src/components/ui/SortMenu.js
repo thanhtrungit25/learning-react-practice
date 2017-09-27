@@ -1,6 +1,6 @@
-import '../../stylesheets/Menu.scss'
+import '../../../stylesheets/Menu.scss'
 import { PropTypes } from 'react'
-import { sortColors } from '../actions'
+import { sortColors } from '../../actions'
 
 const options = {
     date: "SORTED_BY_DATE",
