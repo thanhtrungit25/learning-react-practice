@@ -28,14 +28,14 @@ export const sortColors = sortBy =>
     (sortBy === "rating") ?
         ({
             type: C.SORT_COLORS,
-            sortBy: "SORT_BY_RATING"
+            sortBy: "SORTED_BY_RATING"
         }) :
         (sortBy === "title") ?
             ({
                 type: C.SORT_COLORS,
-                sortBy: "SORT_BY_TITLE"
+                sortBy: "SORTED_BY_TITLE"
             }) :
             ({
                 type: C.SORT_COLORS,
-                sortBy: "SORT_BY_DATE"
+                sortBy: "SORTED_BY_DATE"
             })
