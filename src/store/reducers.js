@@ -32,7 +32,7 @@ export const colors = (state=[], action) => {
             ]
         case C.RATE_COLOR:
             return state.map(
-                c => color(state, action)
+                c => color(c, action)
             )
         case C.REMOVE_COLOR:
             return state.filter(
