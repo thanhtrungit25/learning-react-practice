@@ -1,20 +1,31 @@
-import { createStore, combineReducers } from 'redux'
+import { createStore,
+         combineReducers,
+         applyMiddleware } from 'redux'
 import { colors, sort } from './reducers'
 import stateData from '../../data/initialState'
 
-store.subscribe(() => {
-    localStorage['redux-store'] = JSON.stringify(store.getState())
-})
-
-const logState = () => {
-    console.log('next state', store.getState())
+const logger = store => next => action => {
+    let result
+    console.groupCollapsed("dispatching", action.type)
+    console.log("prev state", store.getState())
+    console.log("action", action)
+    result = next(action)
+    console.log("next state", store.getState())
+    console.groupEnd()
 }
 
-const unsubscribeLogger = store.subscribe(logState)
+const saver = store => next => action => {
+    let result = next(action)
+    localStorage['redux-store'] = JSON.stringify(store.getState())
+    return result
+}
 
-const store = createStore(
-    combineReducers({ colors, sort }),
-    (localStorage['redux-store']) ?
-        JSON.parse(localStorage['redux-store']) :
-        {}
-)
+const storeFactory = (initialState=stateData) =>
+    applyMiddleware(logger, saver)(createStore)(
+        combineReducers({color, sort}),
+        (localStorage['redux-store']) ?
+            JSON.parse(localStorage['redux-store']) :
+            stateData
+    )
+
+export default storeFactory
