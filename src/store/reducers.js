@@ -1,19 +1,18 @@
 import C from "../constants"
 import { v4 } from "uuid"
 
-export const color = (state = {}, action) => {
+export const color = (state = {}, action={type: null}) => {
     switch (action.type) {
         case C.ADD_COLOR:
             return {
-                id: v4(),
+                id: action.id,
                 title: action.title,
                 color: action.color,
                 timestamp: action.timestamp,
                 rating: 0
             }
         case C.RATE_COLOR:
-            return (state.id !== action.id) ?
-                state :
+            return (state.id !== action.id) ? state :
                 {
                     ...state,
                     rating: action.rating
@@ -23,7 +22,7 @@ export const color = (state = {}, action) => {
     }
 }
 
-export const colors = (state=[], action) => {
+export const colors = (state=[], action={type: null}) => {
     switch (action.type) {
         case C.ADD_COLOR:
             return [
@@ -43,7 +42,7 @@ export const colors = (state=[], action) => {
     }
 }
 
-export const sort = (state="SORTED_BY_DATE", action) => {
+export const sort = (state="SORTED_BY_DATE", action={type: null}) => {
     switch (action.type) {
         case C.SORT_COLORS:
             return action.sortBy          

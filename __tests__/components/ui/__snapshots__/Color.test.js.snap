@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Color /> UI Component Renders correct properties 1`] = `
+<section
+  className="color"
+>
+  <h1>
+    Test Color
+  </h1>
+  <button>
+    <FaTrashO />
+  </button>
+  <div
+    className="color"
+    style={
+      Object {
+        "backgroundColor": "Test super color",
+      }
+    }
+  />
+  <TimeAgo
+    timestamp="Mon Apr 11 2016 12:54:19 GMT-0700 (PDT)"
+  />
+  <div>
+    <StarRating
+      starsSelected={3}
+    />
+  </div>
+</section>
+`;
